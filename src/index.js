@@ -56,8 +56,9 @@ export default class PurgecssPlugin {
                         const options = {
                             ...this.options,
                             content: filesToSearch,
-                            css: [asset.source()],
-                            stdin: true
+                            css: [{
+                                raw: asset.source()
+                            }]
                         }
                         if (typeof options.whitelist === 'function') {
                             options.whitelist = options.whitelist()
